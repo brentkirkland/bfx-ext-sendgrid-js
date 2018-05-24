@@ -10,6 +10,12 @@
   "keywords": [
     "bitfinex"
   ],
+  "scripts": {
+    "test": "npm run lint && npm run unit",
+    "unit": "mocha",
+    "lint": "standard",
+    "lintFix": "standard --fix"
+  },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
     "async": "^2.5.0",
@@ -37,6 +43,7 @@
     }
   ],
   "devDependencies": {
+    "grenache-grape": "^0.9.5",
     "mocha": "^3.4.2",
     "standard": "^10.0.3"
   }
