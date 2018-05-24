@@ -11,6 +11,7 @@
     "bitfinex"
   ],
   "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
     "async": "^2.5.0",
     "bfx-facs-api": "git+https://github.com/bitfinexcom/bfx-facs-api.git",
     "bfx-facs-base": "git+https://github.com/bitfinexcom/bfx-facs-base.git",
