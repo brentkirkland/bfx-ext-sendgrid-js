@@ -66,7 +66,7 @@ describe('Sendgrid test', () => {
     }
     peer.request('rest:ext:sendgrid', queryUploadPublic, { timeout: 10000 }, (err, data) => {
       if (err) return done(err)
-      assert.strictEqual(202, data[0].statusCode)
+      assert.strictEqual(202, data.statusCode)
       done()
     })
   }).timeout(5000)
