@@ -25,8 +25,7 @@
     "bfx-facs-interval": "https://github.com/bitfinexcom/bfx-facs-interval.git",
     "bfx-svc-boot-js": "https://github.com/bitfinexcom/bfx-svc-boot-js.git",
     "bfx-wrk-api": "git+https://github.com/bitfinexcom/bfx-wrk-api.git",
-    "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git",
-    "lodash": "^4.17.4"
+    "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git"
   },
   "engine": {
     "node": ">=8.0"
