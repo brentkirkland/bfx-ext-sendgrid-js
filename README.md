@@ -14,7 +14,7 @@ npm install
 
 The project inherits code from a base repository.
 
-The base / root project is: https://github.com/bitfinexcom/bsendgrid-ext-js
+The base / root project is: https://github.com/bitfinexcom/bfx-ext-js
 
 Add it with:
 
@@ -27,7 +27,7 @@ You will also need to configure the config files to your likings.
 You can start with the following:
 
 ```
-cp config/sendgrid.ext.json.example config/fx.ext.json
+cp config/sendgrid.ext.json.example config/sendgrid.ext.json
 cp config/common.json.example config/common.json
 cp config/facs/grc.config.json.example config/facs/grc.config.json
 ```
