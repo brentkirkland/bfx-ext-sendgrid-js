@@ -26,7 +26,7 @@ class ExtSendgrid extends Api {
       const res = await sgMail.send(msg)
       cb(null, res && res.length && res[0])
     } catch (e) {
-      cb(new Error('ERR_API_SENDGRID'))
+      cb(new Error(`ERR_API_SENDGRID: ${e.toString()}`))
     }
   }
 }
