@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "@sendgrid/mail": "^6.2.1",
+    "@sendgrid/mail": "^6.3.1",
     "bfx-facs-api": "git+https://github.com/bitfinexcom/bfx-facs-api.git",
     "bfx-facs-base": "git+https://github.com/bitfinexcom/bfx-facs-base.git",
     "bfx-facs-grc": "git+https://github.com/bitfinexcom/bfx-facs-grc.git",
@@ -46,6 +46,6 @@
   "devDependencies": {
     "mocha": "^5.2.0",
     "standard": "^11.0.1",
-    "grenache-grape": "^0.9.5"
+    "grenache-grape": "^0.9.8"
   }
 }
