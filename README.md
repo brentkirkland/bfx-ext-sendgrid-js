@@ -71,8 +71,6 @@ node example.js
     - Email subject
   - `text`: &lt;String&gt;
     - Email body text version of message when html is not available
-  - `html`: &lt;String&gt;
-    - Email body html
 
 **Example Response**
 

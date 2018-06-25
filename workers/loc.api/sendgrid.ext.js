@@ -1,6 +1,7 @@
 'use strict'
 
 const { Api } = require('bfx-wrk-api')
+const template = require('./sendgrid.template')
 
 class ExtSendgrid extends Api {
   space (service, msg) {
@@ -22,8 +23,10 @@ class ExtSendgrid extends Api {
     if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
     if (!text) return cb(new Error('ERR_API_NO_TEXT'))
 
+    const html = template(subject, text)
+
     try {
-      const res = await sgMail.send(msg)
+      const res = await sgMail.send({ ...msg, html })
       cb(null, res && res.length && res[0])
     } catch (e) {
       cb(new Error(`ERR_API_SENDGRID: ${e.toString()}`))
