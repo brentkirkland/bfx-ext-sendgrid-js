@@ -7,3 +7,5 @@ config/*.json
 config/facs/*.json
 logs
 package-lock.json
+!templates/*.js.example
+templates/*.js

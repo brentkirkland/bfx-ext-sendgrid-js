@@ -1,7 +1,6 @@
 'use strict'
 
 const { Api } = require('bfx-wrk-api')
-const template = require('./sendgrid.template')
 
 class ExtSendgrid extends Api {
   space (service, msg) {
@@ -22,6 +21,10 @@ class ExtSendgrid extends Api {
     if (!from) return cb(new Error('ERR_API_NO_FROM'))
     if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
     if (!text) return cb(new Error('ERR_API_NO_TEXT'))
+
+    let tpl = msg.template || this.ctx.conf.defaultTemplate
+
+    const template = require(`${__dirname}/../../templates/${tpl}.js`)
 
     const html = template(subject, text)
 

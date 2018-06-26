@@ -1,4 +1,5 @@
 {
   "grcServices": [ "rest:ext:sendgrid" ],
-  "apiKey": ""
+  "apiKey": "",
+  "defaultTemplate": "bitfinex"
 }

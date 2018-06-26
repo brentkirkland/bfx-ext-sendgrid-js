@@ -46,6 +46,10 @@ class WrkExtSendgridApi extends WrkApi {
       case 'api_bfx':
         ctx.sgMail = sgMail
         ctx.sgMail.setApiKey(apiKey)
+        ctx.conf = {
+          defaultTemplate: this.conf.ext.defaultTemplate
+        }
+
         break
     }
 
