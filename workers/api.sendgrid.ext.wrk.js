@@ -32,12 +32,6 @@ class WrkExtSendgridApi extends WrkApi {
     )
   }
 
-  getApiConf () {
-    return {
-      path: 'sendgrid.ext'
-    }
-  }
-
   getPluginCtx (type) {
     const ctx = super.getPluginCtx(type)
     const { apiKey } = this.conf.ext
