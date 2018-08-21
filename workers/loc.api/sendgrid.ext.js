@@ -23,18 +23,26 @@ class ExtSendgrid extends Api {
     if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
     if (!text && !html) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
 
-    let tpl = msg.template || this.ctx.conf.defaultTemplate
-
-    const template = require(`${__dirname}/../../templates/${tpl}.js`)
-
-    const html = template(subject, text)
+    const send = (html)
+      ? msg
+      : this._createTemplate(msg)
 
     try {
-      const res = await sgMail.send({ ...msg, html })
+      const res = await sgMail.send(send)
       cb(null, res && res.length && res[0])
     } catch (e) {
       cb(new Error(`ERR_API_SENDGRID: ${e.toString()}`))
     }
+  }
+
+  _createTemplate (msg) {
+    let tpl = msg.template || this.ctx.conf.defaultTemplate
+
+    const template = require(`${__dirname}/../../templates/${tpl}.js`)
+
+    const html = template(msg.subject, msg.text)
+
+    return { ...msg, html }
   }
 }
 
