@@ -14,13 +14,14 @@ class ExtSendgrid extends Api {
       to,
       from,
       subject,
-      text
+      text,
+      html
     } = msg
 
     if (!to) return cb(new Error('ERR_API_NO_TO'))
     if (!from) return cb(new Error('ERR_API_NO_FROM'))
     if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
-    if (!text) return cb(new Error('ERR_API_NO_TEXT'))
+    if (!text && !html) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
 
     let tpl = msg.template || this.ctx.conf.defaultTemplate
 
