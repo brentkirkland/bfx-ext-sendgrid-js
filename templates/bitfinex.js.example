@@ -160,13 +160,13 @@ const prettyEmail = (title, message) => {
                                                     '<td valign="top" style="padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#999999;font-family:Helvetica;font-size:11px;line-height:125%;text-align:center">' +
                                                       'Mobile apps now available' +
                                                       '<br>' +
-                                                      '<a href="https://itunes.apple.com/us/app/bitfinex/id1079033582" title="Apple Appstore" target="_blank"><img align="center" alt="Apple Appstore" src="https://www.bitfinex.com/assets/appstore.png" width="135" style="max-width:135px;padding:10px;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none" ></a>' +
-                                                      '<a href="https://play.google.com/store/apps/details?id=com.bitfinex.bfxapp" title="Google Play Store" target="_blank"><img align="center" alt="Google Play Store" src="https://www.bitfinex.com/assets/play.png" width="135" style="max-width:135px;padding:10px;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none" ></a>' +
+                                                      '<a href="https://itunes.apple.com/us/app/bitfinex/id1436383182" title="Apple Appstore" target="_blank"><img align="center" alt="Apple Appstore" src="https://www.bitfinex.com/assets/appstore.png" width="135" style="max-width:135px;padding:10px;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none" ></a>' +
+                                                      '<a href="https://play.google.com/store/apps/details?id=com.bitfinex.mobileapp" title="Google Play Store" target="_blank"><img align="center" alt="Google Play Store" src="https://www.bitfinex.com/assets/play.png" width="135" style="max-width:135px;padding:10px;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none" ></a>' +
                                                       '<br>' +
                                                       '<a href="https://www.bitfinex.com/app" style="word-wrap:break-word;color:#999999;font-weight:normal;text-decoration:underline" target="_blank">Read more about the mobile apps</a>' +
                                                       '<br>' +
                                                       '<br>' +
-                                                      '<em>Copyright 2013-2018 iFinex Inc. All rights reserved.</em>' +
+                                                      '<em>Copyright 2013-2019 iFinex Inc. All rights reserved.</em>' +
                                                       '<br>' +
                                                       '<br>' +
                                                       'Want to change your email settings?<br>' +
