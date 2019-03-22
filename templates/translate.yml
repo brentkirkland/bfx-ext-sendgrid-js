@@ -1,0 +1,65 @@
+---
+en:
+  user_mailer:
+    template:
+      apps: Mobile apps now available
+      apple: Apple Appstore
+      anti_spam: Anti-Spam Policy
+      disable_html: Want to disable these emails?<br/> Review our
+      goog: Google Play Store
+      read_more: Read more about the mobile apps
+      regards: Regards
+      settings: Want to change your email settings?
+      update: You can
+      update2: update your preferences
+      update3: in your account settings
+      tokenized_explain: The following secure link is valid for only one use and will expire after 24 hours.
+      tokenized_explain2: If you have a problem using the link below, please restart this process to receive a new email with a new secure link.
+ru:
+  user_mailer:
+    template:
+      apps: Доступны мобильные приложения
+      apple: Apple Appstore
+      anti_spam: Политика борьбы со спамом
+      disable_html: Хотите отключить эти письма?<br/> Проверьте
+      goog: Магазин Google Play
+      read_more: Подробнее о мобильных приложениях
+      regards: С уважением
+      settings: Хотите изменить настройки электронной почты?
+      update: Вы можете
+      update2: обновить личные настройки
+      update3: в настройках аккаунта
+      tokenized_explain: Безопасная ссылка ниже будет действовать 24 часа и может быть использована только один раз.
+      tokenized_explain2: Если ссылка ниже не сработает, перезапустите этот процесс, чтобы получить новое письмо с новой безопасной ссылкой.
+zh-CN:
+  user_mailer:
+    template:
+      apps: 现在提供移动应用
+      apple: Apple Appstore
+      anti_spam: 反垃圾邮件政策
+      disable_html: 是否想要禁用这些电子邮件？<br/>请参阅我们的
+      goog: Google Play 商店
+      read_more: 阅读更多有关移动应用的信息
+      regards: 此致
+      settings: 是否想要更改您的电子邮件设置？
+      update: 您可以
+      update2: 在您的账户设置中
+      update3: 更新偏好设置
+      tokenized_explain: 以下安全链接仅适用于单次使用，将在 24 小时后过期。
+      tokenized_explain2: 如果您在使用下面的链接时遇到问题，请重新操作，以便接收包含新安全链接的电子邮件。
+zh-TW:
+  user_mailer:
+    template:
+      apps: 行動 apps 上架了
+      apple: 蘋果 Appstore
+      anti_spam: 反垃圾郵件政策
+      disable_html: 您要停用這些電子郵件嗎？<br/>請查閱我們的
+      goog: Google Play 商店
+      read_more: 閱讀更多有關行動 apps 的資訊
+      regards: 敬上
+      settings: 您要更改您的電子郵件設定嗎？
+      update: 您可以
+      update2: 更新您帳戶中的
+      update3: 偏好設定
+      tokenized_explain: 以下安全連結僅能使用一次，並且會在 24 小時後失效。
+      tokenized_explain2: 如果您使用以下連結時遇到問題，請重新開始以接收內附新的安全連結的電子郵件。

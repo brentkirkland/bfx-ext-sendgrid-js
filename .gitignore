@@ -8,5 +8,3 @@ config/facs/*.json
 logs
 sec
 package-lock.json
-!templates/*.js.example
-templates/*.js

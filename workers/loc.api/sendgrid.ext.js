@@ -40,7 +40,7 @@ class ExtSendgrid extends Api {
 
     const template = require(`${__dirname}/../../templates/${tpl}.js`)
 
-    const html = template(msg.subject, msg.text)
+    const html = template(msg)
 
     return { ...msg, html }
   }
