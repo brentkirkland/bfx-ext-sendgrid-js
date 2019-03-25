@@ -22,7 +22,7 @@ class WrkExtSendgridApi extends WrkApi {
   checkConf () {
     const { apiKey } = this.conf.ext
 
-    assert.equal(
+    assert.strictEqual(
       typeof apiKey, 'string',
       'apiKey must be a string, check config/sendgrid.ext.json'
     )
