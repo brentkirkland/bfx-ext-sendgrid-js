@@ -258,8 +258,8 @@ function _getHtmlEmailButtonText (button) {
           <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate!important;border:1px solid #e5e5e5;border-radius:2px;background-color:#f5f5f5">
             <tbody>
               <tr>
-                <td align="center" valign="middle" style="font-family:Arial;font-size:12px;padding:10px">
-                  <a href="${button.url}" target="_blank" style="letter-spacing:.7;line-height:100%;text-align:center;text-decoration:none;color:#4995c4;text-transform:uppercase;word-wrap:break-word;display:block">
+                <td align="center" valign="middle" style="font-family:Arial;font-size:12px;">
+                  <a href="${button.url}" target="_blank" style="padding:10px;letter-spacing:.7;line-height:100%;text-align:center;text-decoration:none;color:#4995c4;text-transform:uppercase;word-wrap:break-word;display:block">
                     ${button.text}
                   </a>
                 </td>
