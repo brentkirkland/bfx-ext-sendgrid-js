@@ -4,6 +4,8 @@ const mime = require('mime-types')
 const path = require('path')
 const { Api } = require('bfx-wrk-api')
 
+const RFC_4648_BASE_64 = /^(?:[a-zA-Z0-9+\/]{4})*(?:|(?:[a-zA-Z0-9+\/]{3}=)|(?:[a-zA-Z0-9+\/]{2}==)|(?:[a-zA-Z0-9+\/]{1}===))$/ // eslint-disable-line
+
 class ExtSendgrid extends Api {
   space (service, msg) {
     const space = super.space(service, msg)
@@ -41,7 +43,7 @@ class ExtSendgrid extends Api {
         if (!att.filename) {
           return cb(new Error('ERR_API_INVALID_ATTACHMENT_ITEM_FILENAME'))
         }
-        if (!att.content || !/^[A-Za-z0-9+/=]+$/.test(att.content)) { // base64 check
+        if (!att.content || !RFC_4648_BASE_64.test(att.content)) {
           return cb(new Error('ERR_API_INVALID_ATTACHMENT_ITEM_CONTENT'))
         }
         if (!att.disposition) att.disposition = 'attachment'
