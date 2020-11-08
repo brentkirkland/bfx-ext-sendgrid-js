@@ -22,14 +22,9 @@ Add it with:
 git remote add upstream https://github.com/bitfinexcom/bfx-ext-js
 ```
 
-You will also need to configure the config files to your likings.
-
-You can start with the following:
-
+You will also need to configure the config files to your likings. This can be done by simply running:
 ```
-cp config/sendgrid.ext.json.example config/sendgrid.ext.json
-cp config/common.json.example config/common.json
-cp config/facs/grc.config.json.example config/facs/grc.config.json
+bash setup-config.sh
 ```
 
 ## Run
