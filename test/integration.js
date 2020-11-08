@@ -26,7 +26,7 @@ describe('Sendgrid test', () => {
       })
 
       const f = path.join(__dirname, '..', 'worker.js')
-      rpc = spawn('node', [ f, '--env=development', '--wtype=wrk-ext-sendgrid-api', '--apiPort=13371' ])
+      rpc = spawn('node', [f, '--env=development', '--wtype=wrk-ext-sendgrid-api', '--apiPort=13371'])
       rpc.stdout.on('data', (d) => {
         console.log(d.toString())
       })
@@ -62,7 +62,7 @@ describe('Sendgrid test', () => {
     }
     const queryUploadPublic = {
       action: 'sendEmail',
-      args: [ msg ]
+      args: [msg]
     }
     peer.request('rest:ext:sendgrid', queryUploadPublic, { timeout: 10000 }, (err, data) => {
       if (err) return done(err)

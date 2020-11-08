@@ -1,5 +1,6 @@
 'use strict'
 
+const path = require('path')
 const { Api } = require('bfx-wrk-api')
 
 class ExtSendgrid extends Api {
@@ -36,9 +37,9 @@ class ExtSendgrid extends Api {
   }
 
   _createTemplate (msg) {
-    let tpl = msg.template || this.ctx.conf.defaultTemplate
+    const tpl = msg.template || this.ctx.conf.defaultTemplate
 
-    const template = require(`${__dirname}/../../templates/${tpl}.js`)
+    const template = require(path.join(__dirname, `../../templates/${tpl}.js`))
 
     const { subject, text, button, language } = msg
     const html = template(subject, text, button, language)
