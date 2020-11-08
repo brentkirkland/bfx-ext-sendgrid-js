@@ -57,15 +57,19 @@ node example.js
 ## Grenache API
 
 ### action: 'sendEmail'
-- args: &lt;Object&gt;
-  - `to`: &lt;String&gt;
-    - Email to address
-  - `from`: &lt;String&gt;
-    - Email from address
-  - `subject`: &lt;String&gt;
-    - Email subject
-  - `text`: &lt;String&gt;
-    - Email body text version of message when html is not available
+- `msg`: &lt;Object&gt;
+  - `to`: &lt;String&gt; - Email to address
+  - `from`: &lt;String&gt; - Email from address
+  - `subject`: &lt;String&gt; - Email subject
+  - `text`: &lt;String&gt; - Optional, email body text version of message when html is not available
+  - `html`: &lt;String&gt; - Optional, email html text version, `text` or `html` fields are required, could be also both but not none!
+  - `attachments`: &lt;Array&gt; - Optional
+    - `0`: &lt;Object&gt;
+      - `content`: &lt;String&gt; - Base64 content of the attachment
+      - `filename`: &lt;String&gt; - File name of the attachment, e.g. `attachment.pdf`
+      - `type`: &lt;String&gt; - Mime type of the attachment, e.g. `application/pdf`
+      - `disposition`: &lt;String&gt; - Content disposition, allowed types: `attachment` and `inline`
+      - `content_id`: &lt;String&gt; - Optional, required only if `disposition=inline`
 
 **Example Response**
 
