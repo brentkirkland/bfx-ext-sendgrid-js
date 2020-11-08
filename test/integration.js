@@ -3,6 +3,7 @@
 'use strict'
 
 const assert = require('assert')
+const fs = require('fs')
 const path = require('path')
 const spawn = require('child_process').spawn
 
@@ -58,7 +59,15 @@ describe('Sendgrid test', () => {
       from: 'test@example.com',
       subject: 'Sending with SendGrid is Fun',
       text: 'and easy to do anywhere, even with Node.js',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>'
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      attachments: [
+        {
+          content: fs.readFileSync(path.join(__dirname, 'data/bitfinex.png')).toString('base64'),
+          filename: 'bitinex.png',
+          type: 'image/png',
+          disposition: 'attachment'
+        }
+      ]
     }
     const queryUploadPublic = {
       action: 'sendEmail',
