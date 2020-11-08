@@ -28,6 +28,7 @@
     "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git",
     "js-yaml": "^3.13.0",
     "lodash": "^4.17.10",
+    "mime-types": "^2.1.27",
     "yargs": "^16.1.0"
   },
   "engine": {
