@@ -49,6 +49,7 @@ const pdfPaper = {
 const msg = {
   to: 'vigan.abd@gmail.com',
   from: { email: 'vigan.abdurrahmani@bitfinex.com', name: 'vigan work' },
+  cc: ['vigan.abd@outlook.com'],
   subject: 'Simple documents',
   text: 'This email contains a sample file upload test',
   attachments: [
