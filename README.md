@@ -58,8 +58,8 @@ node example.js
 
 ### action: 'sendEmail'
 - `msg`: &lt;Object&gt;
-  - `to`: &lt;String|Object&gt; - Email to address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}
-  - `from`: &lt;String|String[]|Object|Object[]&gt; - Email from address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `from`: &lt;String|Object&gt; - Email from address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}
+  - `to`: &lt;String|String[]|Object|Object[]&gt; - Email to address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
   - `cc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
   - `bcc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
   - `subject`: &lt;String&gt; - Email subject
