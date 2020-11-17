@@ -63,7 +63,7 @@ describe('Sendgrid test', () => {
       attachments: [
         {
           content: fs.readFileSync(path.join(__dirname, 'data/bitfinex.png')).toString('base64'),
-          filename: 'bitinex.png',
+          filename: 'bitfinex.png',
           type: 'image/png',
           disposition: 'attachment'
         }

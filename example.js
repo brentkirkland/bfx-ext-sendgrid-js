@@ -35,8 +35,8 @@ function printPeerRequest (action, args, opts) {
 
 const pngImage = {
   content: fs.readFileSync(path.join(__dirname, 'test/data/bitfinex.png')).toString('base64'),
-  filename: 'bitinex.png',
-  type: mime.contentType('bitinex.png'),
+  filename: 'bitfinex.png',
+  type: mime.contentType('bitfinex.png'),
   disposition: 'attachment'
 }
 const pdfPaper = {
