@@ -22,14 +22,9 @@ Add it with:
 git remote add upstream https://github.com/bitfinexcom/bfx-ext-js
 ```
 
-You will also need to configure the config files to your likings.
-
-You can start with the following:
-
+You will also need to configure the config files to your likings. This can be done by simply running:
 ```
-cp config/sendgrid.ext.json.example config/sendgrid.ext.json
-cp config/common.json.example config/common.json
-cp config/facs/grc.config.json.example config/facs/grc.config.json
+bash setup-config.sh
 ```
 
 ## Run
@@ -62,15 +57,21 @@ node example.js
 ## Grenache API
 
 ### action: 'sendEmail'
-- args: &lt;Object&gt;
-  - `to`: &lt;String&gt;
-    - Email to address
-  - `from`: &lt;String&gt;
-    - Email from address
-  - `subject`: &lt;String&gt;
-    - Email subject
-  - `text`: &lt;String&gt;
-    - Email body text version of message when html is not available
+- `msg`: &lt;Object&gt;
+  - `from`: &lt;String|Object&gt; - Email from address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}
+  - `to`: &lt;String|String[]|Object|Object[]&gt; - Email to address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `cc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `bcc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `subject`: &lt;String&gt; - Email subject
+  - `text`: &lt;String&gt; - Optional, email body text version of message when html is not available
+  - `html`: &lt;String&gt; - Optional, email html text version, `text` or `html` fields are required, could be also both but not none!
+  - `attachments`: &lt;Array&gt; - Optional
+    - `0`: &lt;Object&gt;
+      - `content`: &lt;String&gt; - Base64 content of the attachment
+      - `filename`: &lt;String&gt; - File name of the attachment, e.g. `attachment.pdf`
+      - `type`: &lt;String&gt; - Mime type of the attachment, e.g. `application/pdf`
+      - `disposition`: &lt;String&gt; - Content disposition, allowed types: `attachment` and `inline`
+      - `content_id`: &lt;String&gt; - Optional, required only if `disposition=inline`
 
 **Example Response**
 

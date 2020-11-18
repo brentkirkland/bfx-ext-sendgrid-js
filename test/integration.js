@@ -3,6 +3,7 @@
 'use strict'
 
 const assert = require('assert')
+const fs = require('fs')
 const path = require('path')
 const spawn = require('child_process').spawn
 
@@ -26,7 +27,7 @@ describe('Sendgrid test', () => {
       })
 
       const f = path.join(__dirname, '..', 'worker.js')
-      rpc = spawn('node', [ f, '--env=development', '--wtype=wrk-ext-sendgrid-api', '--apiPort=13371' ])
+      rpc = spawn('node', [f, '--env=development', '--wtype=wrk-ext-sendgrid-api', '--apiPort=13371'])
       rpc.stdout.on('data', (d) => {
         console.log(d.toString())
       })
@@ -58,11 +59,19 @@ describe('Sendgrid test', () => {
       from: 'test@example.com',
       subject: 'Sending with SendGrid is Fun',
       text: 'and easy to do anywhere, even with Node.js',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>'
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      attachments: [
+        {
+          content: fs.readFileSync(path.join(__dirname, 'data/bitfinex.png')).toString('base64'),
+          filename: 'bitfinex.png',
+          type: 'image/png',
+          disposition: 'attachment'
+        }
+      ]
     }
     const queryUploadPublic = {
       action: 'sendEmail',
-      args: [ msg ]
+      args: [msg]
     }
     peer.request('rest:ext:sendgrid', queryUploadPublic, { timeout: 10000 }, (err, data) => {
       if (err) return done(err)
