@@ -1,5 +1,5 @@
 {
-  "name": "bfx-ext-js",
+  "name": "bfx-ext-sendgrid-js",
   "version": "0.0.6",
   "private": true,
   "description": "Bitfinex External Service",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
-    "async": "^2.6.1",
+    "async": "^3.2.0",
     "bfx-facs-api": "git+https://github.com/bitfinexcom/bfx-facs-api.git",
     "bfx-facs-base": "git+https://github.com/bitfinexcom/bfx-facs-base.git",
     "bfx-facs-grc": "git+https://github.com/bitfinexcom/bfx-facs-grc.git",
@@ -27,7 +27,7 @@
     "bfx-wrk-api": "git+https://github.com/bitfinexcom/bfx-wrk-api.git",
     "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git",
     "js-yaml": "^3.13.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "mime-types": "^2.1.27",
     "yargs": "^16.1.0"
   },
