@@ -65,6 +65,10 @@ node example.js
   - `subject`: &lt;String&gt; - Email subject
   - `text`: &lt;String&gt; - Optional, email body text version of message when html is not available
   - `html`: &lt;String&gt; - Optional, email html text version, `text` or `html` fields are required, could be also both but not none!
+  - `button`: &lt;Object&gt; - Optional, email button, when `html` is provided it's ignored
+    - `url`: &lt;String&gt; - Button url
+    - `text`: &lt;String&gt; - Button text
+  - `language`: &lt;String&gt; - Optional, template language, when `html` is provided it's ignored
   - `attachments`: &lt;Array&gt; - Optional
     - `0`: &lt;Object&gt;
       - `content`: &lt;String&gt; - Base64 content of the attachment
