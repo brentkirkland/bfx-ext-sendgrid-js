@@ -65,7 +65,8 @@ node example.js
   - `subject`: &lt;String&gt; - Email subject
   - `header`: &lt;String&gt; - Optional, email header to be used. If omitted, `subject` is used as base for the email header.
   - `text`: &lt;String&gt; - Optional, email body text version of message when html is not available
-  - `html`: &lt;String&gt; - Optional, email html text version, `text` or `html` fields are required, could be also both but not none!
+  - `html`: &lt;String&gt; - Optional, email html text version, `text`, `html` or `plaintext` fields are required, could be also more than one but not none!
+  - `plaintext`: &lt;String&gt; - Optional, email plain text version, `text`, `html` or `plaintext` fields are required, could be also more than one but not none!
   - `button`: &lt;Object&gt; - Optional, email button, when `html` is provided it's ignored
     - `url`: &lt;String&gt; - Button url
     - `text`: &lt;String&gt; - Button text

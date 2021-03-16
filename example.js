@@ -51,7 +51,9 @@ const msg = {
   from: { email: 'vigan.abdurrahmani@bitfinex.com', name: 'vigan work' },
   cc: ['vigan.abd@outlook.com'],
   subject: 'Simple documents',
-  text: 'This email contains a sample file upload test',
+  header: 'An important message',
+  text: 'This <strong>email</strong> contains a sample file upload test',
+  plaintext: 'This email contains a sample file upload test',
   attachments: [
     pngImage,
     pdfPaper
