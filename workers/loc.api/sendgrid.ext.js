@@ -1,5 +1,6 @@
 'use strict'
 
+const _omit = require('lodash/omit')
 const mime = require('mime-types')
 const path = require('path')
 const { Api } = require('bfx-wrk-api')
@@ -54,11 +55,10 @@ class ExtSendgrid extends Api {
       }
     }
 
-    const send = (html)
-      ? msg
-      : this._createTemplate(msg)
+    const send = { ..._omit(msg, ['text', 'html', 'plaintext']) }
     if (plaintext) send.text = plaintext
-    if (!text && !html) delete send.html
+    if (text) send.html = this._createTemplate(msg)
+    if (html) send.html = html
 
     try {
       const res = await sgMail.send(send)
@@ -76,7 +76,7 @@ class ExtSendgrid extends Api {
     const { subject, text, button, language, header } = msg
     const html = template(subject, text, button, language, header)
 
-    return { ...msg, html }
+    return html
   }
 }
 
