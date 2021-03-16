@@ -58,8 +58,9 @@ describe('Sendgrid test', () => {
       to: 'brent@bitfinex.com',
       from: 'test@example.com',
       subject: 'Sending with SendGrid is Fun',
-      text: 'and easy to do anywhere, even with Node.js',
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      header: 'An important message',
+      text: 'This <strong>email</strong> contains a sample file upload test',
+      plaintext: 'This email contains a sample file upload test',
       attachments: [
         {
           content: fs.readFileSync(path.join(__dirname, 'data/bitfinex.png')).toString('base64'),
