@@ -7,8 +7,8 @@ const path = require('path')
 const translationsFile = path.join(__dirname, 'translate.yml')
 const translations = yaml.safeLoad(fs.readFileSync(translationsFile, 'utf8'))
 
-const prettyEmail = (subject, text, button, language) => {
-  const htmlHeader = _getHtmlHeader(subject)
+const prettyEmail = (subject, text, button, language, header) => {
+  const htmlHeader = _getHtmlHeader(header || subject)
   const htmlButton = _getHtmlEmailButtonText(button)
   const t = _getTranslations(language)
   const html = `

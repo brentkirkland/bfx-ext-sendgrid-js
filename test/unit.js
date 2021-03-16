@@ -41,4 +41,14 @@ describe('Unit test on template emails', () => {
     assert.ok(res)
     assert.ok(res.includes('閱讀更多有關行動 apps 的資訊'))
   })
+
+  it('Passing header should replace subject usage for the email header', () => {
+    const subject = 'subject'
+    const text = 'text'
+    const header = 'custom-header'
+    const res = template(subject, text, null, null, header)
+    assert.ok(res)
+    assert.ok(res.includes('custom-header'))
+    assert.ok(!res.includes('subject'))
+  })
 })
