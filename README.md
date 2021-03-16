@@ -63,6 +63,7 @@ node example.js
   - `cc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
   - `bcc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
   - `subject`: &lt;String&gt; - Email subject
+  - `header`: &lt;String&gt; - Optional, email header to be used. If omitted, `subject` is used as base for the email header.
   - `text`: &lt;String&gt; - Optional, email body text version of message when html is not available
   - `html`: &lt;String&gt; - Optional, email html text version, `text` or `html` fields are required, could be also both but not none!
   - `button`: &lt;Object&gt; - Optional, email button, when `html` is provided it's ignored
