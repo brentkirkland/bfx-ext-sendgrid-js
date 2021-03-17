@@ -56,8 +56,11 @@ class ExtSendgrid extends Api {
     }
 
     const send = { ..._omit(msg, ['text', 'html', 'plaintext']) }
+    if (text) {
+      send.text = text // keep backward compatibility
+      send.html = this._createTemplate(msg)
+    }
     if (plaintext) send.text = plaintext
-    if (text) send.html = this._createTemplate(msg)
     if (html) send.html = html
 
     try {
