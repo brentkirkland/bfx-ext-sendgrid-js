@@ -28,7 +28,7 @@ class ExtSendgrid extends Api {
     if (!to) return cb(new Error('ERR_API_NO_TO'))
     if (!from) return cb(new Error('ERR_API_NO_FROM'))
     if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
-    if (!text && !html && !plaintext) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
+    if (!(text || html || plaintext)) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
     if (attachments) {
       if (!Array.isArray(attachments)) return cb(new Error('ERR_API_INVALID_ATTACHMENT'))
 
