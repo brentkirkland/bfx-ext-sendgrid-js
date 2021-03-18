@@ -64,9 +64,9 @@ node example.js
   - `bcc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
   - `subject`: &lt;String&gt; - Email subject
   - `header`: &lt;String&gt; - Optional, email header to be used. If omitted, `subject` is used as base for the email header.
-  - `text`: &lt;String&gt; - Optional, email body text version of message when html is not available
-  - `html`: &lt;String&gt; - Optional, email html text version, `text`, `html` or `plaintext` fields are required, could be also more than one but not none!
-  - `plaintext`: &lt;String&gt; - Optional, email plain text version, `text`, `html` or `plaintext` fields are required, could be also more than one but not none!
+  - `text`: &lt;String&gt; - Optional, bitfinex email template body section. If present alongside `plaintext` content, text/html content would be rendered html template with body section from `text` field and text/plain content would be value of `plaintext` field!
+  - `html`: &lt;String&gt; - Optional, email html content. If present with `text` field then text/html content would be value of `html` but text/plain would be value of `text`!
+  - `plaintext`: &lt;String&gt; - Optional, email plain text content. At least one of `text`, `html` or `plaintext` should be included!
   - `button`: &lt;Object&gt; - Optional, email button, when `html` is provided it's ignored
     - `url`: &lt;String&gt; - Button url
     - `text`: &lt;String&gt; - Button text
