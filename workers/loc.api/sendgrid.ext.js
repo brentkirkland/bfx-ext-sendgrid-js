@@ -1,5 +1,6 @@
 'use strict'
 
+const _omit = require('lodash/omit')
 const mime = require('mime-types')
 const path = require('path')
 const { Api } = require('bfx-wrk-api')
@@ -18,13 +19,14 @@ class ExtSendgrid extends Api {
       subject,
       text,
       html,
+      plaintext,
       attachments
     } = msg
 
     if (!to) return cb(new Error('ERR_API_NO_TO'))
     if (!from) return cb(new Error('ERR_API_NO_FROM'))
     if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
-    if (!text && !html) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
+    if (!(text || html || plaintext)) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
     if (attachments) {
       if (!Array.isArray(attachments)) return cb(new Error('ERR_API_INVALID_ATTACHMENT'))
 
@@ -51,9 +53,13 @@ class ExtSendgrid extends Api {
       }
     }
 
-    const send = (html)
-      ? msg
-      : this._createTemplate(msg)
+    const send = { ..._omit(msg, ['text', 'html', 'plaintext']) }
+    if (text) {
+      send.text = text // keep backward compatibility
+      send.html = this._createTemplate(msg)
+    }
+    if (plaintext) send.text = plaintext
+    if (html) send.html = html
 
     try {
       const res = await sgMail.send(send)
@@ -71,7 +77,7 @@ class ExtSendgrid extends Api {
     const { subject, text, button, language, header } = msg
     const html = template(subject, text, button, language, header)
 
-    return { ...msg, html }
+    return html
   }
 }
 
