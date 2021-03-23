@@ -12,21 +12,13 @@ class ExtSendgrid extends Api {
   }
 
   async sendEmail (space, msg, cb) {
+    const validationError = this._validateParams(msg)
+    if (validationError) {
+      return cb(validationError)
+    }
     const { sgMail } = this.ctx
-    const {
-      to,
-      from,
-      subject,
-      text,
-      html,
-      plaintext,
-      attachments
-    } = msg
+    const { attachments } = msg
 
-    if (!to) return cb(new Error('ERR_API_NO_TO'))
-    if (!from) return cb(new Error('ERR_API_NO_FROM'))
-    if (!subject) return cb(new Error('ERR_API_NO_SUBJECT'))
-    if (!(text || html || plaintext)) return cb(new Error('ERR_API_NO_TEXT_OR_HTML'))
     if (attachments) {
       if (!Array.isArray(attachments)) return cb(new Error('ERR_API_INVALID_ATTACHMENT'))
 
@@ -53,17 +45,33 @@ class ExtSendgrid extends Api {
       }
     }
 
-    const send = { ..._omit(msg, ['text', 'html', 'plaintext']) }
-    if (text) {
-      send.text = text // keep backward compatibility
-      send.html = this._createTemplate(msg)
-    }
-    if (plaintext) send.text = plaintext
-    if (html) send.html = html
+    const send = this._createSendObj(msg)
 
     try {
       const res = await sgMail.send(send)
       cb(null, res && res.length && res[0])
+    } catch (e) {
+      cb(new Error(`ERR_API_SENDGRID: ${e.toString()}`))
+    }
+  }
+
+  async sendEncryptedEmail (space, msg, cb) {
+    const validationError = this._validateParams(msg)
+    if (validationError) {
+      return cb(validationError)
+    }
+    const { gpgKey } = msg
+    if (!gpgKey) {
+      return cb(new Error('ERR_API_NO_GPG_KEY'))
+    }
+    const { sendEncryptedMail } = this.ctx
+
+    const send = this._createSendObj(msg)
+    send.encryptionKeys = [gpgKey]
+
+    try {
+      const res = await sendEncryptedMail(send)
+      cb(null, res)
     } catch (e) {
       cb(new Error(`ERR_API_SENDGRID: ${e.toString()}`))
     }
@@ -78,6 +86,28 @@ class ExtSendgrid extends Api {
     const html = template(subject, text, button, language, header)
 
     return html
+  }
+
+  _validateParams ({ to, from, subject, text, html, plaintext } = {}) {
+    if (!to) return new Error('ERR_API_NO_TO')
+    if (!from) return new Error('ERR_API_NO_FROM')
+    if (typeof from === 'object' && !from.email && !from.address) {
+      return new Error('ERR_API_NO_FROM')
+    }
+    if (!subject) return new Error('ERR_API_NO_SUBJECT')
+    if (!(text || html || plaintext)) return new Error('ERR_API_NO_TEXT_OR_HTML')
+  }
+
+  _createSendObj (msg) {
+    const { text, html, plaintext } = msg
+    const send = { ..._omit(msg, ['text', 'html', 'plaintext']) }
+    if (text) {
+      send.text = text // keep backward compatibility
+      send.html = this._createTemplate(msg)
+    }
+    if (plaintext) send.text = plaintext
+    if (html) send.html = html
+    return send
   }
 }
 

@@ -2,6 +2,8 @@
 
 const { WrkApi } = require('bfx-wrk-api')
 const sgMail = require('@sendgrid/mail')
+const nodemailer = require('nodemailer')
+const { openpgpEncrypt } = require('nodemailer-openpgp')
 const assert = require('assert')
 
 class WrkExtSendgridApi extends WrkApi {
@@ -35,6 +37,14 @@ class WrkExtSendgridApi extends WrkApi {
   getPluginCtx (type) {
     const ctx = super.getPluginCtx(type)
     const { apiKey } = this.conf.ext
+    const mailer = nodemailer.createTransport({
+      service: 'SendGrid',
+      auth: {
+        user: 'apikey',
+        pass: apiKey
+      }
+    })
+    mailer.use('stream', openpgpEncrypt())
 
     switch (type) {
       case 'api_bfx':
@@ -42,6 +52,16 @@ class WrkExtSendgridApi extends WrkApi {
         ctx.sgMail.setApiKey(apiKey)
         ctx.conf = {
           defaultTemplate: this.conf.ext.defaultTemplate
+        }
+        ctx.sendEncryptedMail = sendData => {
+          if (typeof sendData.from === 'object' && sendData.from.email) {
+            sendData.from = {
+              name: sendData.from.name,
+              address: sendData.from.email
+            }
+          }
+
+          return mailer.sendMail(sendData)
         }
 
         break

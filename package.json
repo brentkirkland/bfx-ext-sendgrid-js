@@ -29,6 +29,8 @@
     "js-yaml": "^3.13.0",
     "lodash": "^4.17.15",
     "mime-types": "^2.1.27",
+    "nodemailer": "^6.5.0",
+    "nodemailer-openpgp": "^1.2.0",
     "yargs": "^16.1.0"
   },
   "engine": {
