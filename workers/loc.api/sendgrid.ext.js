@@ -60,6 +60,9 @@ class ExtSendgrid extends Api {
     if (validationError) {
       return cb(validationError)
     }
+    if (msg.attachments) {
+      return cb(new Error('ERR_API_ATTACHMENT_NOT_ALLOWED'))
+    }
     const { gpgKey } = msg
     if (!gpgKey) {
       return cb(new Error('ERR_API_NO_GPG_KEY'))
