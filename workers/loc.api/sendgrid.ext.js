@@ -1,6 +1,5 @@
 'use strict'
 
-const _omit = require('lodash/omit')
 const mime = require('mime-types')
 const path = require('path')
 const { Api } = require('bfx-wrk-api')
@@ -102,8 +101,7 @@ class ExtSendgrid extends Api {
   }
 
   _createSendObj (msg) {
-    const { text, html, plaintext } = msg
-    const send = { ..._omit(msg, ['text', 'html', 'plaintext']) }
+    const { text, html, plaintext, ...send } = msg
     if (text) {
       send.text = text // keep backward compatibility
       send.html = this._createTemplate(msg)

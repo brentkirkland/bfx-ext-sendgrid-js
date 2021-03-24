@@ -85,3 +85,39 @@ Success:
 ```js
 { statusCode, headers, request }
 ```
+
+### action: 'sendEncryptedEmail'
+- `msg`: &lt;Object&gt;
+  - `from`: &lt;String|Object&gt; - Email from address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}
+  - `to`: &lt;String|String[]|Object|Object[]&gt; - Email to address, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `cc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `bcc`: &lt;String|String[]|Object|Object[]&gt; - Optional, email cc addresses, string or object with fields {`name`: &lt;String&gt;, `email `: &lt;String&gt;}. Could be also array of string or object with fields mentioned
+  - `subject`: &lt;String&gt; - Email subject
+  - `header`: &lt;String&gt; - Optional, email header to be used. If omitted, `subject` is used as base for the email header.
+  - `text`: &lt;String&gt; - Optional, bitfinex email template body section. If present alongside `plaintext` content, text/html content would be rendered html template with body section from `text` field and text/plain content would be value of `plaintext` field!
+  - `html`: &lt;String&gt; - Optional, email html content. If present with `text` field then text/html content would be value of `html` but text/plain would be value of `text`!
+  - `plaintext`: &lt;String&gt; - Optional, email plain text content. At least one of `text`, `html` or `plaintext` should be included!
+  - `button`: &lt;Object&gt; - Optional, email button, when `html` is provided it's ignored
+    - `url`: &lt;String&gt; - Button url
+    - `text`: &lt;String&gt; - Button text
+  - `language`: &lt;String&gt; - Optional, template language, when `html` is provided it's ignored
+  - `gpgKey`: &lt;String&gt; - Required, public GPG key to encrypt message with
+
+**Example Response**
+
+Success:
+```js
+{
+  accepted: [ 'denis.fatkhudinov+1@bitfinex.com' ],
+  rejected: [],
+  envelopeTime: 250,
+  messageTime: 160,
+  messageSize: 24083,
+  response: '250 Ok: queued as bhS31FKfRpu2fDUjbl468A',
+  envelope: {
+    from: 'denis.fatkhudinov@bitfinex.com',
+    to: [ 'denis.fatkhudinov+1@bitfinex.com' ]
+  },
+  messageId: '<409bf1b2-a171-51f8-df15-730872d2107b@bitfinex.com>'
+}
+```

@@ -103,6 +103,13 @@ a9ZPWHL8bq8lW/ulqIDAoGBtwn8cULYZzcDx8EAVkGkN/VA=
 }
 
 async function main () {
+  msg.to = 'denis.fatkhudinov+1@bitfinex.com'
+  msg.from = 'denis.fatkhudinov@bitfinex.com'
+  msg.cc = 'denis.fatkhudinov+2@bitfinex.com'
+  encryptedMsg.to = 'denis.fatkhudinov+1@bitfinex.com'
+  encryptedMsg.from = 'denis.fatkhudinov@bitfinex.com'
+  encryptedMsg.cc = 'denis.fatkhudinov+2@bitfinex.com'
+
   await printPeerRequest('sendEmail', [msg])
   await printPeerRequest('sendEncryptedEmail', [encryptedMsg])
 }

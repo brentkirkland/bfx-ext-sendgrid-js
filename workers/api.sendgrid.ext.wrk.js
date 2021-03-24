@@ -5,6 +5,7 @@ const sgMail = require('@sendgrid/mail')
 const nodemailer = require('nodemailer')
 const { openpgpEncrypt } = require('nodemailer-openpgp')
 const assert = require('assert')
+const { normalizeHeader } = require('../lib')
 
 class WrkExtSendgridApi extends WrkApi {
   constructor (conf, ctx) {
@@ -54,11 +55,8 @@ class WrkExtSendgridApi extends WrkApi {
           defaultTemplate: this.conf.ext.defaultTemplate
         }
         ctx.sendEncryptedMail = sendData => {
-          if (typeof sendData.from === 'object' && sendData.from.email) {
-            sendData.from = {
-              name: sendData.from.name,
-              address: sendData.from.email
-            }
+          for (const header of ['from', 'replyTo', 'sender', 'to', 'cc', 'bcc']) {
+            sendData[header] = normalizeHeader(sendData[header])
           }
 
           return mailer.sendMail(sendData)
