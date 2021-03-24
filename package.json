@@ -11,8 +11,9 @@
     "bitfinex"
   ],
   "scripts": {
-    "test": "npm run lint && npm run unit",
-    "unit": "mocha",
+    "test": "npm run lint && npm run unit && npm run integration",
+    "unit": "mocha ./test/unit.js",
+    "integration": "mocha ./test/integration.js",
     "lint": "standard",
     "lintFix": "standard --fix"
   },
@@ -27,8 +28,9 @@
     "bfx-wrk-api": "git+https://github.com/bitfinexcom/bfx-wrk-api.git",
     "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git",
     "js-yaml": "^3.13.0",
-    "lodash": "^4.17.15",
     "mime-types": "^2.1.27",
+    "nodemailer": "^6.5.0",
+    "nodemailer-openpgp": "^1.2.0",
     "yargs": "^16.1.0"
   },
   "engine": {
