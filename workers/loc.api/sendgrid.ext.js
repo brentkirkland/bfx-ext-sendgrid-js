@@ -101,7 +101,7 @@ class ExtSendgrid extends Api {
   }
 
   _createSendObj (msg) {
-    const { text, html, plaintext, ...send } = msg
+    const { text, html, plaintext, gpgKey, ...send } = msg
     if (text) {
       send.text = text // keep backward compatibility
       send.html = this._createTemplate(msg)
