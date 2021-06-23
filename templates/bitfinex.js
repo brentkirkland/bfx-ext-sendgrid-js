@@ -7,7 +7,7 @@ const path = require('path')
 const translationsFile = path.join(__dirname, 'translate.yml')
 const translations = yaml.safeLoad(fs.readFileSync(translationsFile, 'utf8'))
 
-const prettyEmail = (subject, text, button, language, header) => {
+const prettyEmail = (subject, text, button, language, header, from) => {
   const htmlHeader = _getHtmlHeader(header || subject)
   const htmlButton = _getHtmlEmailButtonText(button)
   const t = _getTranslations(language)
@@ -38,7 +38,7 @@ const prettyEmail = (subject, text, button, language, header) => {
                                                 <tbody>
                                                   <tr>
                                                     <td valign="top" style="padding-right:9px;padding-left:9px;padding-top:0;padding-bottom:0;text-align:center">
-                                                      <a href="https://www.bitfinex.com" title="Bitfinex" target="_blank"><img align="center" alt="Bitfinex" src="https://www.bitfinex.com/assets/logo3.png" width="230" style="max-width:230px;padding:10px;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none" ></a>
+                                                      <a href="https://www.bitfinex.com" title="Bitfinex" target="_blank"><img align="center" alt="Bitfinex" src="${t.user_mailer.template.logo[from] || t.user_mailer.template.logo.default}" width="230" style="max-width:230px;padding:10px;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none" ></a>
                                                     </td>
                                                   </tr>
                                                 </tbody>

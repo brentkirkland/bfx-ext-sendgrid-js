@@ -51,4 +51,19 @@ describe('Unit test on template emails', () => {
     assert.ok(res.includes('custom-header'))
     assert.ok(!res.includes('subject'))
   })
+
+  it('Passing from should determine the logo to use', () => {
+    const subject = 'subject'
+    const text = 'text'
+    const from = 'securities-compliance@bitfinex.com'
+    const res = template(subject, text, null, null, null, from)
+    assert.ok(res)
+    assert.ok(res.includes('data:image/svg+xml;base64'))
+    assert.ok(!res.includes('https://www.bitfinex.com/assets/logo3.png'))
+
+    const res2 = template(subject, text)
+    assert.ok(res2)
+    assert.ok(res2.includes('https://www.bitfinex.com/assets/logo3.png'))
+    assert.ok(!res2.includes('data:image/svg+xml;base64'))
+  })
 })
