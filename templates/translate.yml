@@ -17,7 +17,7 @@ en:
       tokenized_explain2: If you have a problem using the link below, please restart this process to receive a new email with a new secure link.
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
-        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/logo-securities.svg
+        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_on_white.png
 ru:
   user_mailer:
     template:
@@ -36,7 +36,7 @@ ru:
       tokenized_explain2: Если ссылка ниже не сработает, перезапустите этот процесс, чтобы получить новое письмо с новой безопасной ссылкой.
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
-        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/logo-securities.svg
+        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_on_white.png
 zh-CN:
   user_mailer:
     template:
@@ -55,7 +55,7 @@ zh-CN:
       tokenized_explain2: 如果您在使用下面的链接时遇到问题，请重新操作，以便接收包含新安全链接的电子邮件。
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
-        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/logo-securities.svg
+        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_on_white.png
 zh-TW:
   user_mailer:
     template:
@@ -74,4 +74,4 @@ zh-TW:
       tokenized_explain2: 如果您使用以下連結時遇到問題，請重新開始以接收內附新的安全連結的電子郵件。
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
-        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/logo-securities.svg
+        securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_on_white.png
