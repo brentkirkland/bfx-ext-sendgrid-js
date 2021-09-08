@@ -18,6 +18,12 @@ en:
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
         securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_transarent.png
+      sender:
+        default: The Bitfinex Team
+        securities-compliance@bitfinex.com: The Bitfinex Securities Team
+      sender_url:
+        default: https://www.bitfinex.com
+        securities-compliance@bitfinex.com: https://www.bitfinex.com/securities
 ru:
   user_mailer:
     template:
@@ -37,6 +43,12 @@ ru:
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
         securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_transarent.png
+      sender:
+        default: The Bitfinex Team
+        securities-compliance@bitfinex.com: The Bitfinex Securities Team
+      sender_url:
+        default: https://www.bitfinex.com
+        securities-compliance@bitfinex.com: https://www.bitfinex.com/securities
 zh-CN:
   user_mailer:
     template:
@@ -56,6 +68,12 @@ zh-CN:
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
         securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_transarent.png
+      sender:
+        default: The Bitfinex Team
+        securities-compliance@bitfinex.com: The Bitfinex Securities Team
+      sender_url:
+        default: https://www.bitfinex.com
+        securities-compliance@bitfinex.com: https://www.bitfinex.com/securities
 zh-TW:
   user_mailer:
     template:
@@ -75,3 +93,9 @@ zh-TW:
       logo:
         default: https://www.bitfinex.com/assets/logo3.png
         securities-compliance@bitfinex.com: https://static.bitfinex.com/images/logos/bitfinex_securities_logo_color_transarent.png
+      sender:
+        default: The Bitfinex Team
+        securities-compliance@bitfinex.com: The Bitfinex Securities Team
+      sender_url:
+        default: https://www.bitfinex.com
+        securities-compliance@bitfinex.com: https://www.bitfinex.com/securities

@@ -11,6 +11,7 @@ const prettyEmail = (subject, text, button, language, header, from) => {
   const htmlHeader = _getHtmlHeader(header || subject)
   const htmlButton = _getHtmlEmailButtonText(button)
   const t = _getTranslations(language)
+  const senderUrl = t.user_mailer.template.sender_url[from] || t.user_mailer.template.sender_url.default
   const html = `
   <div marginwidth="0" marginheight="0" style="margin:0;padding:0;background-color:#363636;min-height:100%!important;width:100%!important">
     <center>
@@ -107,9 +108,9 @@ const prettyEmail = (subject, text, button, language, header, from) => {
                                                           <tr>
                                                             <td valign="top" style="padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#999999;font-family:Helvetica;font-size:13px;line-height:150%;text-align:left">
                                                               ${t.user_mailer.template.regards}, <br/>
-                                                              The Bitfinex Team <br/>
-                                                              <a href='https://www.bitfinex.com' style='word-wrap:break-word;color:#BABABA;font-weight:normal;text-decoration:none;' target='_blank'>
-                                                                https://www.bitfinex.com
+                                                              ${t.user_mailer.template.sender[from] || t.user_mailer.template.sender.default} <br/>
+                                                              <a href='${senderUrl}' style='word-wrap:break-word;color:#BABABA;font-weight:normal;text-decoration:none;' target='_blank'>
+                                                                ${senderUrl}
                                                               </a>
                                                             </td>
                                                           </tr>
