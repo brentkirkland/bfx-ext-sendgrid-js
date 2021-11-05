@@ -18,8 +18,8 @@
     "lintFix": "standard --fix"
   },
   "dependencies": {
-    "@sendgrid/mail": "^6.2.1",
-    "async": "^3.2.0",
+    "@sendgrid/mail": "6.2.1",
+    "async": "3.2.0",
     "bfx-facs-api": "git+https://github.com/bitfinexcom/bfx-facs-api.git",
     "bfx-facs-base": "git+https://github.com/bitfinexcom/bfx-facs-base.git",
     "bfx-facs-grc": "git+https://github.com/bitfinexcom/bfx-facs-grc.git",
@@ -27,11 +27,11 @@
     "bfx-svc-boot-js": "https://github.com/bitfinexcom/bfx-svc-boot-js.git",
     "bfx-wrk-api": "git+https://github.com/bitfinexcom/bfx-wrk-api.git",
     "bfx-wrk-base": "git+https://github.com/bitfinexcom/bfx-wrk-base.git",
-    "js-yaml": "^3.13.0",
-    "mime-types": "^2.1.27",
-    "nodemailer": "^6.5.0",
-    "nodemailer-openpgp": "^1.2.0",
-    "yargs": "^16.1.0"
+    "js-yaml": "3.13.0",
+    "mime-types": "2.1.27",
+    "nodemailer": "6.5.0",
+    "nodemailer-openpgp": "1.2.0",
+    "yargs": "16.1.0"
   },
   "engine": {
     "node": ">=8.0"
